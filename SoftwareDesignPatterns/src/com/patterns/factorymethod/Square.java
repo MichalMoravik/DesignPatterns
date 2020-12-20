@@ -1,0 +1,9 @@
+package com.patterns.factorymethod;
+
+public class Square implements Polygon {
+	@Override
+	public String getType() {
+		return "square";
+	}
+}
+
