@@ -1,34 +1,22 @@
-package drinks.cocktails;
+package drinks.basic;
 
 import drinks.DrinkDifficulty;
+import drinks.IDrink;
 
-public class Cocktail implements ICocktail {
-	private float sugarMilliliters, lemonMilliliters, price, alcoholPercentage;
+public class Beer implements IDrink {
+	private float price, alcoholPercentage;
 	private String name;
-	private boolean isShakeable;
 	private DrinkDifficulty drinkDifficulty;
+	private boolean isShakeable;
 	private String[] preparationSteps;
 
-	public Cocktail(float sugarMilliliters, float lemonMilliliters, float price, float alcoholPercentage,
-					String name, boolean isShakeable, DrinkDifficulty drinkDifficulty, String[] preparationSteps) {
-		this.sugarMilliliters = sugarMilliliters;
-		this.lemonMilliliters = lemonMilliliters;
+	public Beer(float price, float alcoholPercentage, String name, String[] preparationSteps) {
 		this.price = price;
 		this.alcoholPercentage = alcoholPercentage;
 		this.name = name;
-		this.isShakeable = isShakeable;
-		this.drinkDifficulty = drinkDifficulty;
+		this.drinkDifficulty = DrinkDifficulty.EASY;
+		this.isShakeable = false;
 		this.preparationSteps = preparationSteps;
-	}
-
-	@Override
-	public float getSugarMilliliters() {
-		return sugarMilliliters;
-	}
-
-	@Override
-	public float getLemonMilliliters() {
-		return lemonMilliliters;
 	}
 
 	@Override
@@ -60,4 +48,5 @@ public class Cocktail implements ICocktail {
 	public String[] getPreparationSteps() {
 		return preparationSteps;
 	}
+
 }

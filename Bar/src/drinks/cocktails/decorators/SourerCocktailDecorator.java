@@ -2,8 +2,8 @@ package drinks.cocktails.decorators;
 
 import drinks.cocktails.ICocktail;
 
-public class MoreSourCocktailDecorator extends CocktailDecorator {
-	public MoreSourCocktailDecorator(ICocktail cocktail) {
+public class SourerCocktailDecorator extends CocktailDecorator {
+	public SourerCocktailDecorator(ICocktail cocktail) {
 		super(cocktail);
 	}
 

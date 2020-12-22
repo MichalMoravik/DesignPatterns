@@ -6,4 +6,5 @@ public interface IDrink {
 	float getAlcoholPercentage();
 	boolean isShakeable();
 	DrinkDifficulty getDrinkDifficulty();
+	String[] getPreparationSteps();
 }

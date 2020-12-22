@@ -1,8 +1,8 @@
 package drinks.cocktails;
 
-public interface ICocktail {
+import drinks.IDrink;
+
+public interface ICocktail extends IDrink {
 	float getSugarMilliliters();
 	float getLemonMilliliters();
-//	float setSugarMilliliters();
-//	float setLemonMilliliters();
 }
