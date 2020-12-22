@@ -1,6 +1,4 @@
-import bar.Bar;
-import bar.Bartender;
-import bar.HeadBartender;
+import bar.*;
 import bar.courses.AdvancedShakingTechniques;
 import bar.courses.CocktailTraining;
 import bar.courses.IBartenderCourse;
@@ -85,7 +83,11 @@ public class Client {
 
 	public static void managerSide() throws IOException {
 		List<Bartender> availableBartenders = new ArrayList<>();
-		availableBartenders.add(new HeadBartender("Henrik"));
+		availableBartenders.add(new HeadBartender(null, "Henrik"));
+		availableBartenders.add(new SeniorBartender(null, "Daniel"));
+		availableBartenders.add(new SeniorBartender(null, "Peter"));
+		availableBartenders.add(new JuniorBartender(null, "Stephan"));
+		availableBartenders.add(new JuniorBartender(null, "Anna"));
 
 		IBartenderCourse bartenderCourse;
 
@@ -97,13 +99,9 @@ public class Client {
 		if (chosenCourse.equalsIgnoreCase("1")) bartenderCourse = new AdvancedShakingTechniques();
 		else bartenderCourse = new CocktailTraining();
 
-
-		String chosenPeople = InputReader.getAnswer(
-				"Who would you like to send to the course?",
-				"1. Just normal",
-				"2. More sweet",
-				"3. Less sweet");
-
-
+		// send all available bartenders to a chosen course
+		for (Bartender bartender : availableBartenders) {
+			bartender.improve(bartenderCourse);
+		}
 	}
 }

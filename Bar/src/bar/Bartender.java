@@ -20,6 +20,7 @@ public abstract class Bartender {
 		for (String step: preparationSteps) {
 			System.out.println(step);
 		}
+		System.out.println("Giving you the drink...");
 	}
 
 	public abstract String getName();
