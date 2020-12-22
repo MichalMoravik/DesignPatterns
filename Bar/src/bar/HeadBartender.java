@@ -1,5 +1,6 @@
 package bar;
 
+import bar.courses.IBartenderCourse;
 import drinks.DrinkDifficulty;
 import drinks.IDrink;
 
@@ -14,7 +15,7 @@ public class HeadBartender extends Bartender {
 	@Override
 	void handleOrder(IDrink drink) {
 		if (drink.getDrinkDifficulty().equals(DrinkDifficulty.HARD)) {
-			System.out.println("Hello, I am " + name + ", a head bartender here, at SDP");
+			System.out.println("Hello, I am " + name + ", a head bartender here at SDP");
 		} else {
 			super.handleOrder(drink);
 		}
@@ -28,5 +29,10 @@ public class HeadBartender extends Bartender {
 	@Override
 	public String getTitle() {
 		return "Head Bartender";
+	}
+
+	@Override
+	public void improve(IBartenderCourse bartenderCourse) {
+		bartenderCourse.improveHeadBartender(this);
 	}
 }

@@ -1,3 +1,11 @@
+import bar.Bar;
+import bar.Bartender;
+import bar.HeadBartender;
+import bar.courses.AdvancedShakingTechniques;
+import bar.courses.CocktailTraining;
+import bar.courses.IBartenderCourse;
+import drinks.IDrink;
+import drinks.basic.BasicDrinkFactory;
 import drinks.cocktails.CocktailFactory;
 import drinks.cocktails.ICocktail;
 import drinks.cocktails.decorators.LessSourCocktailDecorator;
@@ -6,6 +14,8 @@ import drinks.cocktails.decorators.SourerCocktailDecorator;
 import drinks.cocktails.decorators.SweeterCocktailDecorator;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
 	public static void main(String[] args) throws IOException {
@@ -19,9 +29,14 @@ public class Client {
 	}
 
 	public static void customerSide() throws IOException {
+		IDrink chosenDrink;
+
 		String chosenDrinkOption = InputReader.getAnswer(
 				"Hi! welcome to SDP bar, what can I get you",
-				"1. Beer", "2. Wine", "3. Water", "4. Cocktail");
+				"1. Beer",
+				"2. Wine",
+				"3. Water",
+				"4. Cocktail");
 
 		if (chosenDrinkOption.equalsIgnoreCase("4")) {
 			String chosenCocktailOption = InputReader.getAnswer(
@@ -56,12 +71,39 @@ public class Client {
 			} else if (chosenSweetness.equalsIgnoreCase("3")) {
 				chosenCocktail = new LessSweetCocktailDecorator(chosenCocktail);
 			}
-		} else {
 
+			chosenCocktail.printReceipt();
+			chosenDrink = (IDrink) chosenCocktail;
+		} else {
+			chosenDrink = BasicDrinkFactory.getDrink(chosenDrinkOption);
+			chosenDrink.printReceipt();
 		}
+
+		Bar bar = new Bar();
+		bar.askBartenderForDrink(chosenDrink);
 	}
 
 	public static void managerSide() throws IOException {
-		System.out.println("TO BE DONE");
+		List<Bartender> availableBartenders = new ArrayList<>();
+		availableBartenders.add(new HeadBartender("Henrik"));
+
+		IBartenderCourse bartenderCourse;
+
+		String chosenCourse = InputReader.getAnswer(
+				"What course would you like to choose?",
+				"1. Advanced Shaking Techniques",
+				"2. Cocktail Training");
+
+		if (chosenCourse.equalsIgnoreCase("1")) bartenderCourse = new AdvancedShakingTechniques();
+		else bartenderCourse = new CocktailTraining();
+
+
+		String chosenPeople = InputReader.getAnswer(
+				"Who would you like to send to the course?",
+				"1. Just normal",
+				"2. More sweet",
+				"3. Less sweet");
+
+
 	}
 }

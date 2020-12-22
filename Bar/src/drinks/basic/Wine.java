@@ -8,7 +8,6 @@ public class Wine implements IDrink {
 	private String name;
 	private DrinkDifficulty drinkDifficulty;
 	private WineType wineType;
-	private boolean isShakeable;
 	private String[] preparationSteps;
 
 	public Wine(float price, float alcoholPercentage, String name,
@@ -18,7 +17,6 @@ public class Wine implements IDrink {
 		this.name = name;
 		this.drinkDifficulty = DrinkDifficulty.MEDIUM;
 		this.wineType = wineType;
-		this.isShakeable = false;
 		this.preparationSteps = preparationSteps;
 	}
 
@@ -42,11 +40,6 @@ public class Wine implements IDrink {
 	}
 
 	@Override
-	public boolean isShakeable() {
-		return isShakeable;
-	}
-
-	@Override
 	public DrinkDifficulty getDrinkDifficulty() {
 		return drinkDifficulty;
 	}
@@ -54,5 +47,14 @@ public class Wine implements IDrink {
 	@Override
 	public String[] getPreparationSteps() {
 		return preparationSteps;
+	}
+
+	@Override
+	public void printReceipt() {
+		String wineType = getWineType().name().toLowerCase();
+
+		System.out.println("You chose " + getName() +
+				", which is a " + wineType + " wine with " + getAlcoholPercentage() + "% of alcohol. " +
+				"It will cost you " + getPrice() + " €.");
 	}
 }

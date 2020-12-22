@@ -1,5 +1,6 @@
 package bar;
 
+import bar.courses.IBartenderCourse;
 import drinks.IDrink;
 
 public abstract class Bartender {
@@ -16,7 +17,6 @@ public abstract class Bartender {
 	}
 
 	void prepareDrink(String... preparationSteps) {
-		System.out.println("I am going to prepare your drink, sir.");
 		for (String step: preparationSteps) {
 			System.out.println(step);
 		}
@@ -24,4 +24,5 @@ public abstract class Bartender {
 
 	public abstract String getName();
 	public abstract String getTitle();
+	public abstract void improve(IBartenderCourse bartenderCourse);
 }

@@ -1,5 +1,6 @@
 package bar;
 
+import bar.courses.IBartenderCourse;
 import drinks.DrinkDifficulty;
 import drinks.IDrink;
 
@@ -28,5 +29,10 @@ public class SeniorBartender extends Bartender {
 	@Override
 	public String getTitle() {
 		return "Senior Bartender";
+	}
+
+	@Override
+	public void improve(IBartenderCourse bartenderCourse) {
+		bartenderCourse.improveSeniorBartender(this);
 	}
 }

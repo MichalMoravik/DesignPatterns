@@ -4,7 +4,7 @@ public interface IDrink {
 	float getPrice();
 	String getName();
 	float getAlcoholPercentage();
-	boolean isShakeable();
 	DrinkDifficulty getDrinkDifficulty();
 	String[] getPreparationSteps();
+	void printReceipt();
 }

@@ -7,7 +7,6 @@ public class Water implements IDrink {
 	private float price, alcoholPercentage;
 	private String name;
 	private DrinkDifficulty drinkDifficulty;
-	private boolean isShakeable;
 	private String[] preparationSteps;
 
 	public Water(float price, String name, String[] preparationSteps) {
@@ -15,7 +14,6 @@ public class Water implements IDrink {
 		this.alcoholPercentage = 0.0f;
 		this.name = name;
 		this.drinkDifficulty = DrinkDifficulty.EASY;
-		this.isShakeable = false;
 		this.preparationSteps = preparationSteps;
 	}
 
@@ -35,11 +33,6 @@ public class Water implements IDrink {
 	}
 
 	@Override
-	public boolean isShakeable() {
-		return isShakeable;
-	}
-
-	@Override
 	public DrinkDifficulty getDrinkDifficulty() {
 		return drinkDifficulty;
 	}
@@ -47,5 +40,11 @@ public class Water implements IDrink {
 	@Override
 	public String[] getPreparationSteps() {
 		return this.preparationSteps;
+	}
+
+	@Override
+	public void printReceipt() {
+		System.out.println("You chose " + getName() +
+				" water. It will cost you " + getPrice() + " €.");
 	}
 }

@@ -11,7 +11,10 @@ public abstract class CocktailDecorator implements ICocktail {
 	}
 
 	@Override
-	public void preparationSteps() { cocktail.preparationSteps(); }
+	public void printReceipt() { cocktail.printReceipt(); }
+
+	@Override
+	public String[] getPreparationSteps() { return cocktail.getPreparationSteps(); }
 
 	@Override
 	public float getSugarMilliliters() {
@@ -36,11 +39,6 @@ public abstract class CocktailDecorator implements ICocktail {
 	@Override
 	public float getAlcoholPercentage() {
 		return cocktail.getAlcoholPercentage();
-	}
-
-	@Override
-	public boolean isShakeable() {
-		return cocktail.isShakeable();
 	}
 
 	@Override
