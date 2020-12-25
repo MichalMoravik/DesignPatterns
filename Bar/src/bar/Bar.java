@@ -2,6 +2,7 @@ package bar;
 
 import drinks.IDrink;
 
+// CHAIN HANDLER
 public class Bar {
 	private Bartender bartender;
 
